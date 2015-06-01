@@ -10,7 +10,7 @@ var input = [
 ];
 
 //parsing input
-var firstLine = input[0].split(",");
+var firstLine = input[0].split(", ");
 var area = firstLine[0].split(" ");
 var rect = firstLine[1].split(" ");
 
@@ -46,21 +46,39 @@ console.log(minX + " " + maxX);
 console.log(minY + " " + maxY);
 
 var Structure = [];
+var richInterval = null;
+var points = [];
+for (var x = 0; x < areaX; x++ ) {
+    for (var i = 0, len = pointArray.length; i < len; i++) {
+        if (x === pointArray[i].x) {
+            points.push(pointArray[i]);
+        }
+    }
+    if (points.length > 0) {
+        var currentInterval = new Interval(x, x+rectX, points);
+        if (richInterval === null || currentInterval.points.length > richInterval.points.length) {
+            richInterval = currentInterval;
+        }
+        Structure.push(currentInterval);
+
+    }
+
+}
+console.log(Structure);
 
 function Point(x,y) {
     this.x = +x;
     this.y = +y;
+    function toString() {
+        return "{" + this.x + "," + this.y + "}";
+    }
 }
 
-function Interval(data, id, s, e) {
-  this.id     = id;
-  this.start  = data[s];
-  this.end    = data[e];
-  this.data   = data;
-
-
-}
-
-function addInterval(i) {
-    Structure.push(new Point (i.start, i.end));
+function Interval(s, e, p) {
+  this.start  = s;
+  this.end    = e;
+  this.points = p;
+  function toString() {
+      return "{" + this.start + "," + this.end + "," + this.points + "}";
+  }
 }
