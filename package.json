@@ -1,0 +1,28 @@
+{
+  "name": "TestApp2AlgorithmChallenges",
+  "version": "0.0.3",
+  "description": "Node.js implementation to process 2 algorithmic tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fleischers/TestApp2AlgorithmChallenges.git"
+  },
+  "keywords": [
+    "algorithms"
+  ],
+  "author": "Glib Ischenko <fcl@gorlifsense.com> (http://fleischer.gorlifsense.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fleischers/TestApp2AlgorithmChallenges/issues"
+  },
+  "homepage": "https://github.com/Fleischers/TestApp2AlgorithmChallenges",
+  "dependencies": {
+    "interval-tree": "^0.1.0",
+    "sortedlist": "^0.3.1"
+  },
+  "devDependencies": {}
+}
