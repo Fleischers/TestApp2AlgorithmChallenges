@@ -11,12 +11,26 @@ exec('node challenge1.js', function (error, stdout, stderr) {
 });
 
 var express = require('express');
+var bodyParser = require("body-parser");
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static('public'));
 app.set('port', (process.env.PORT || 3000));
 
-app.get('/', function(request, response) {
-  response.send("Output:" + challenge1);
+// app.get('/', function(request, response) {
+//   response.sendFile("public/index.html");
+// });
+
+app.post('/ch1',function(req,res){
+  var message=req.body.message;
+  console.log("message = "+message);
+  res.end("200");
+});
+app.post('/ch2',function(req,res){
+  var message=req.body.message;
+  console.log("message = "+message);
+  res.end("200");
 });
 
 app.listen(app.get('port'), function() {

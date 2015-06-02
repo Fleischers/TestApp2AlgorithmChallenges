@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Algorithm challenges</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var message;
+        $("#submit").click(function(){
+          message=$("#message").val();
+          $.post("https://testapp2algorithmchallenges.herokuapp.com/ch1",{message: message}, function(data){
+            if(data==='200')
+              {
+                alert("message sent " + data);
+              }
+          });
+        });
+      });
+    </script>
+  </head>
+<body>
+    <h2>Challenge 1:</h2>
+    <form id="text">
+        <textarea type="TEXT" id="message" name="comment" placeholder="input"
+      required form="text"></textarea><br>
+        <input type="button" id="submit" value="Submit">
+    </form>
+
+</body>
+</html>
