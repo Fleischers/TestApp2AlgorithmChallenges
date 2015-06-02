@@ -1,6 +1,6 @@
 {
   "name": "TestApp2AlgorithmChallenges",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Node.js implementation to process 2 algorithmic tasks",
   "main": "index.js",
   "scripts": {
