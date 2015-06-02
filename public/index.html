@@ -3,27 +3,80 @@
     <title>Algorithm challenges</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
     <script>
+    xmlhttp = new XMLHttpRequest();
+    var host = "http://testapp2algorithmchallenges.herokuapp.com";
+    // var host = "http://localhost:5000";
       $(document).ready(function(){
         var message;
-        $("#submit").click(function(){
+        $("#submit1").click(function(){
           message=$("#message").val();
-          $.post("https://testapp2algorithmchallenges.herokuapp.com/ch1",{message: message}, function(data){
+          $.post(host + "/ch1",{message: message}, function(data){
             if(data==='200')
               {
-                alert("message sent " + data);
+                xmlhttp.onreadystatechange=function()
+                {
+                      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                      {
+                          document.getElementById("ch1Area").innerHTML=xmlhttp.responseText;
+                      }
+                  }
+                  xmlhttp.open("GET", host + "/ch1",true);
+                  xmlhttp.send();
+              }
+          });
+        });
+        $("#submit2").click(function(){
+          message=$("#message").val();
+          $.post(host + "/ch2",{message: message}, function(data){
+            if(data==='200')
+              {
+                xmlhttp.onreadystatechange=function()
+                {
+                      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                      {
+                          document.getElementById("ch2Area").innerHTML=xmlhttp.responseText;
+                      }
+                  }
+                  xmlhttp.open("GET", host + "/ch2",true);
+                  xmlhttp.send();
               }
           });
         });
       });
+
     </script>
   </head>
 <body>
     <h2>Challenge 1:</h2>
+    <h3>input:</h3>
     <form id="text">
         <textarea type="TEXT" id="message" name="comment" placeholder="input"
-      required form="text"></textarea><br>
-        <input type="button" id="submit" value="Submit">
+      required form="text" rows=8>
+6 4, 2 1
+0 0
+0 2
+1 2
+3 0
+4 3
+      </textarea><br>
+        <input type="button" id="submit1" value="Submit">
     </form>
+    <h3>output:</h3>
+    <div id="ch1Area"></div>
+    <h2>Challenge 2:</h2>
+    <h3>input:</h3>
+    <form id="text">
+        <textarea type="TEXT" id="message" name="comment" placeholder="input"
+      required form="text" rows=6>
+50m
+BotA 100m 10m
+BotB 50m 20m
+BotC 30m 20m
+      </textarea><br>
+        <input type="button" id="submit2" value="Submit">
+    </form>
+    <h3>output:</h3>
+    <div id="ch2Area"></div>
 
 </body>
 </html>
