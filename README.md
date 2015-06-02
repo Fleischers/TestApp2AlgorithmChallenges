@@ -5,7 +5,7 @@ This Node.js two-challenge resolution uses following 3rd party libraries:
 
 Demo
 ======
-Online demonstration can be found [here on Heroku VM](https://testapp2algorithmchallenges.herokuapp.com/). Please note, VM instance can be asleep.
+Online demonstration can be found [here on Heroku VM](http://testapp2algorithmchallenges.herokuapp.com/). Please note, VM instance can be asleep.
 [![Build Status](https://travis-ci.org/Fleischers/TestApp2AlgorithmChallenges.svg?branch=master)](https://travis-ci.org/Fleischers/TestApp2AlgorithmChallenges)
 
 Install
