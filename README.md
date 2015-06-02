@@ -19,4 +19,8 @@ Use `npm start` to launch program
 
 Assumptions
 ============
-In current version input comes as predetermined array with strings and output comes to stdout. Input can be improved to receive command-line arguments or both Input and Output possibily can be upgraded to work for network operations.
+In first versions input comes as predetermined array with strings and output comes to stdout. Input can be improved to receive command-line arguments or both Input and Output possibily can be upgraded to work for network operations.
+
+Known Bugs
+============
+Problem with algorithm: https://github.com/Fleischers/TestApp2AlgorithmChallenges/issues/1
