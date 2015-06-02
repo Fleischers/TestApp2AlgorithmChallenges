@@ -1,15 +1,22 @@
-// var IntervalTree = require('interval-tree');
+var consoleInput = process.argv[2];
+var input = null;
+if (consoleInput != null) {
+    var input = consoleInput.split(":");
+}
+
 var rbush = require('rbush');
 
 // Let us assume we have array as input
-var input = [
-    "6 4, 2 1",
-    "0 0",
-    "0 2",
-    "1 2",
-    "3 0",
-    "4 3",
-];
+if (input == null) {
+    var input = [
+        "6 4, 2 1",
+        "0 0",
+        "0 2",
+        "1 2",
+        "3 0",
+        "4 3",
+    ];
+}
 
 //parsing input
 var firstLine = input[0].split(", ");

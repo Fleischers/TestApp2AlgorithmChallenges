@@ -35,12 +35,14 @@ app.get('/ch2', function(request, response) {
 
 app.post('/ch1',function(req,res){
   var message=req.body.message;
-  console.log("message = "+message);
+  var array = message.replace(/\n/g, ":");
+  console.log("message = " + array);
   res.end("200");
 });
 app.post('/ch2',function(req,res){
   var message=req.body.message;
-  console.log("message = "+message);
+  var array = message.replace(/\n/g, ":");
+  console.log("message = "+array);
   res.end("200");
 });
 

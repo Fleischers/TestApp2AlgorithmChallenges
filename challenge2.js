@@ -1,15 +1,22 @@
-
+var consoleInput = process.argv[2];
+var input = null;
+if (consoleInput != null) {
+    var input = consoleInput.split(":");
+}
 // Assume that on Input we have data with initial game info
 // first line - firing range
 // on each next line is bot name, start distance, speed
-var input = [
-    "50m",
-    "BotA 100m 10m",
-    "BotB 50m 20m",
-    "BotC 30m 20m",
-    // "BotD 120m 5m",
-    // "BotE 150m 10m"
-];
+if (input == null) {
+    input = [
+        "50m",
+        "BotA 100m 10m",
+        "BotB 50m 20m",
+        "BotC 30m 20m",
+        // "BotD 120m 5m",
+        // "BotE 150m 10m"
+    ];
+}
+
 
 // parsing input to get set of Bot objects with its characteristics
 var towerFiringRange = cutMeter(input[0]);
@@ -35,7 +42,7 @@ for (var turn = 1; botArray.length > 0; turn++) {
         var dyingBot = botArray[minIndex];
         console.log("Turn " + turn + ": Kill "
             + dyingBot.name + " at " + dyingBot.distance + "m");
-        // TODO: make data structure to delete array element more efficiently then .splice(), similar to LinkedList 
+        // TODO: make data structure to delete array element more efficiently then .splice(), similar to LinkedList
         botArray.splice(minIndex, 1);
     }
 
