@@ -35,7 +35,7 @@ for (var turn = 1; botArray.length > 0; turn++) {
         var dyingBot = botArray[minIndex];
         console.log("Turn " + turn + ": Kill "
             + dyingBot.name + " at " + dyingBot.distance + "m");
-        // TODO: find data structure to delete array element more efficiently then .splice(), similar to LinkedList 
+        // TODO: make data structure to delete array element more efficiently then .splice(), similar to LinkedList 
         botArray.splice(minIndex, 1);
     }
 
