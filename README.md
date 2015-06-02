@@ -15,7 +15,8 @@ Clone repository and launch
 
 Start
 ========
-Use `npm start` to launch program
+Use `npm start` to launch program as web server.
+Use `npm test` to launch program in command line with predetermined input
 
 Assumptions
 ============
