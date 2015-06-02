@@ -1,11 +1,12 @@
 Introduction
 ===========
 This Node.js two-challenge resolution uses following 3rd party libraries:
-[rbush](https://github.com/mourner/rbush) 
+[rbush](https://github.com/mourner/rbush)
 
 Demo
 ======
 Online demonstration can be found [here on Heroku VM](https://testapp2algorithmchallenges.herokuapp.com/). Please note, VM instance can be asleep.
+[![Build Status](https://travis-ci.org/Fleischers/TestApp2AlgorithmChallenges.svg?branch=master)](https://travis-ci.org/Fleischers/TestApp2AlgorithmChallenges)
 
 Install
 =======

@@ -4,7 +4,7 @@
   "description": "Node.js implementation to process 2 algorithmic tasks",
   "main": "index.js",
   "scripts": {
-    "test": "node test/testChallenge1.js",
+    "test": "bash test.sh",
     "start": "node index.js"
   },
   "repository": {

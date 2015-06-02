@@ -40,11 +40,13 @@ for (var i=1; i<input.length; i++) {
     }
     pointArray.push(new Point(x, y, i-1));
 }
+pointArray.sort(compare); // sort array of input values to get sweep line further
 
 // add interval data
 var tree = rbush(pointArray.length);
 var maxResult = null;
 
+//collecting structure of rectangle based on points
 for (var i = 0, len = pointArray.length; i < len; i++) {
     var x = pointArray[i].x;
     var y = pointArray[i].y;
@@ -63,14 +65,16 @@ for (var i = 0, len = pointArray.length; i < len; i++) {
     var item = [x, y, bx, by];
     tree.id = i;
     tree.insert(item);
-
+}
+//searching for rectangles with more points
+for (var i = 0, len = pointArray.length; i < len; i++) {
+    var x = pointArray[i].x;
+    var y = pointArray[i].y;
     var result = tree.search([x,y,x,y]);
     if (maxResult === null || result.length > maxResult.length) {
         maxResult = result;
     }
 }
-// console.log(tree.all());
-// console.log(maxResult);
 console.log(maxResult[0][0] + " " + maxResult[0][1] + ", " + maxResult.length);
 
 
@@ -78,7 +82,12 @@ function Point(x,y,id) {
     this.x = +x;
     this.y = +y;
     this.id = id;
-    // toString = function () {
-    //     return "{" + this.x + "," + this.y + "}";
-    // }
+}
+
+function compare(a,b) {
+  if (a.x < b.x)
+    return -1;
+  if (a.x > b.x)
+    return 1;
+  return 0;
 }
