@@ -20,7 +20,7 @@ var areaX = Number(area[0]), areaY = Number(area[1]);
 var rectX = Number(rect[0]), rectY = Number(rect[1]);
 console.log(areaX + " " + areaY + ", " + rectX + " " + rectY);
 if (areaX < rectX || areaY < rectY || areaX <= 0 || areaY <=0 ) {
-    console.log("Please check input area and rectangle settings, it should be more then zero and rectangle cannot be greater then area size");
+    throw new Error("Please check input area and rectangle settings, it should be more then zero and rectangle cannot be greater then area size");
 }
 
 var pointArray = new Array();
