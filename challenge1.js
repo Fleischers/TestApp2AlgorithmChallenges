@@ -38,9 +38,9 @@ for (var i = 0, len = pointArray.length; i < len; i++) {
     var y = pointArray[i].y;
     var bx, by;
     if (x+rectX > areaX) {
-        bx = areaX -1;
+        bx = areaX - 1;
     } else {
-        bx = x+rectX -1;
+        bx = x+rectX - 1;
     }
     if (y+rectY > areaY) {
         by = areaY -1;
