@@ -29,25 +29,6 @@ for (var i=1; i<input.length; i++) {
     pointArray.push(new Point(line[0], line[1], i-1));
 }
 
-// console.log(pointArray);
-
-var maxX = null, minX = null;
-var maxY = null, minY = null;
-for (var i=0, len=pointArray.length; i<len; i++) {
-    if (maxX === null || maxX < pointArray[i].x) {
-        maxX = pointArray[i].x;
-    }
-    if (minX === null || minX > pointArray[i].x) {
-        minX = pointArray[i].x;
-    }
-    if (maxY === null || maxY < pointArray[i].y) {
-        maxY = pointArray[i].y;
-    }
-    if (minY === null || minY > pointArray[i].y) {
-        minY = pointArray[i].y;
-    }
-}
-
 // add interval data
 var tree = rbush(pointArray.length);
 var maxResult = null;

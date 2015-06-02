@@ -1,8 +1,7 @@
 Introduction
 ===========
 This Node.js two-challenge resolution uses following 3rd party libraries:
-[sortedlist](https://github.com/shinout/SortedList) and
-[interval-tree](https://github.com/shinout/interval-tree)
+[rbush](https://github.com/mourner/rbush) 
 
 Install
 =======
