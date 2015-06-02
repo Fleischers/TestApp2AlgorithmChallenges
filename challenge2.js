@@ -16,12 +16,12 @@ if (input == null) {
         // "BotE 150m 10m"
     ];
 }
-
+console.log(input);
 
 // parsing input to get set of Bot objects with its characteristics
 var towerFiringRange = cutMeter(input[0]);
 var botArray = new Array();
-for (var i=1; i<input.length; i++) {
+for (var i=1, len=input.length; i<len; i++) {
     botArray.push(parseInput(input[i]));
 }
 

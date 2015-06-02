@@ -9,7 +9,7 @@
       $(document).ready(function(){
         var message;
         $("#submit1").click(function(){
-          message=$("#message").val();
+          message=$("#message1").val();
           $.post(host + "/ch1",{message: message}, function(data){
             if(data==='200')
               {
@@ -26,7 +26,7 @@
           });
         });
         $("#submit2").click(function(){
-          message=$("#message").val();
+          message=$("#message2").val();
           $.post(host + "/ch2",{message: message}, function(data){
             if(data==='200')
               {
@@ -50,7 +50,7 @@
     <h2>Challenge 1:</h2>
     <h3>input:</h3>
     <form id="text">
-        <textarea type="TEXT" id="message" name="comment" placeholder="input"
+        <textarea type="TEXT" id="message1" name="comment" placeholder="input"
       required form="text" rows=8>
 6 4, 2 1
 0 0
@@ -66,7 +66,7 @@
     <h2>Challenge 2:</h2>
     <h3>input:</h3>
     <form id="text">
-        <textarea type="TEXT" id="message" name="comment" placeholder="input"
+        <textarea type="TEXT" id="message2" name="comment" placeholder="input"
       required form="text" rows=6>
 50m
 BotA 100m 10m
