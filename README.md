@@ -15,4 +15,4 @@ Use `npm start` to launch program
 
 Assumptions
 ============
-In current version input comes as predetermined array with strings and output comes to stdout. Input can be improved to receive command-line arguments or with network messages.
+In current version input comes as predetermined array with strings and output comes to stdout. Input can be improved to receive command-line arguments or both Input and Output possibily can be upgraded to work for network operations.

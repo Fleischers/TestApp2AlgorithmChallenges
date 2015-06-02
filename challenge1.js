@@ -61,7 +61,7 @@ for (var i = 0, len = pointArray.length; i < len; i++) {
     //     var left = 0;
     //     var right = x+1;
     // }
-    itree.add([up,down,pointArray[i]]);
+    itree.add([up,down,pointArray[i]], i);
     if (previousX !== null) {
         var search = itree.search(pointArray[i].x);
         search.forEach(function(result) {
