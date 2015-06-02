@@ -1,7 +1,7 @@
 var consoleInput = process.argv[2];
 var input = null;
 if (consoleInput != null) {
-    var input = consoleInput.split(":");
+    input = consoleInput.split(":");
 }
 
 var rbush = require('rbush');
@@ -26,14 +26,19 @@ var rect = firstLine[1].split(" ");
 var areaX = Number(area[0]), areaY = Number(area[1]);
 var rectX = Number(rect[0]), rectY = Number(rect[1]);
 console.log(areaX + " " + areaY + ", " + rectX + " " + rectY);
-if (areaX < rectX || areaY < rectY || areaX <= 0 || areaY <=0 ) {
+if (areaX < rectX || areaY < rectY || areaX <= 0 || areaY <=0 || rectX <= 0 || rectY <=0 ) {
     throw new Error("Please check input area and rectangle settings, it should be more then zero and rectangle cannot be greater then area size");
 }
 
 var pointArray = new Array();
 for (var i=1; i<input.length; i++) {
     var line = input[i].split(" ");
-    pointArray.push(new Point(line[0], line[1], i-1));
+    var x = line[0];
+    var y = line[1];
+    if (x>=areaX || y>=areaY || x<0 || y<0) {
+        throw new Error("Please check input. X and Y cannot be greater then area settings or less then zero");
+    }
+    pointArray.push(new Point(x, y, i-1));
 }
 
 // add interval data

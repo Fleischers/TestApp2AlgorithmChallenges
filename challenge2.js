@@ -1,7 +1,7 @@
 var consoleInput = process.argv[2];
 var input = null;
 if (consoleInput != null) {
-    var input = consoleInput.split(":");
+    input = consoleInput.split(":");
 }
 // Assume that on Input we have data with initial game info
 // first line - firing range
@@ -16,7 +16,7 @@ if (input == null) {
         // "BotE 150m 10m"
     ];
 }
-console.log(input);
+// console.log(input);
 
 // parsing input to get set of Bot objects with its characteristics
 var towerFiringRange = cutMeter(input[0]);

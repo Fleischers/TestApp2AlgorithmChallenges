@@ -5,31 +5,23 @@
     <script>
     xmlhttp = new XMLHttpRequest();
     var host = "http://testapp2algorithmchallenges.herokuapp.com";
-    // var host = "http://localhost:5000";
+    var host = "http://localhost:5000";
       $(document).ready(function(){
         var message;
         $("#submit1").click(function(){
           message=$("#message1").val();
           $.post(host + "/ch1",{message: message}, function(data){
-            if(data==='200')
-              {
-                xmlhttp.onreadystatechange=function()
-                {
-                      if (xmlhttp.readyState==4 && xmlhttp.status==200)
-                      {
-                          document.getElementById("ch1Area").innerHTML=xmlhttp.responseText;
-                      }
-                  }
-                  xmlhttp.open("GET", host + "/ch1",true);
-                  xmlhttp.send();
-              }
+              document.getElementById("ch1Area").innerHTML=data;
+
           });
         });
         $("#submit2").click(function(){
           message=$("#message2").val();
           $.post(host + "/ch2",{message: message}, function(data){
+              document.getElementById("ch2Area").innerHTML=data;
             if(data==='200')
               {
+
                 xmlhttp.onreadystatechange=function()
                 {
                       if (xmlhttp.readyState==4 && xmlhttp.status==200)
