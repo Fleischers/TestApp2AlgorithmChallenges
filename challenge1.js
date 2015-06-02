@@ -1,4 +1,5 @@
-var IntervalTree = require('interval-tree');
+// var IntervalTree = require('interval-tree');
+var rbush = require('rbush');
 
 // Let us assume we have array as input
 var input = [
@@ -17,6 +18,7 @@ var rect = firstLine[1].split(" ");
 
 var areaX = Number(area[0]), areaY = Number(area[1]);
 var rectX = Number(rect[0]), rectY = Number(rect[1]);
+console.log(areaX + " " + areaY + ", " + rectX + " " + rectY);
 if (areaX < rectX || areaY < rectY || areaX <= 0 || areaY <=0 ) {
     console.log("Please check input area and rectangle settings, it should be more then zero and rectangle cannot be greater then area size");
 }
@@ -27,7 +29,7 @@ for (var i=1; i<input.length; i++) {
     pointArray.push(new Point(line[0], line[1], i-1));
 }
 
-console.log(pointArray);
+// console.log(pointArray);
 
 var maxX = null, minX = null;
 var maxY = null, minY = null;
@@ -47,34 +49,36 @@ for (var i=0, len=pointArray.length; i<len; i++) {
 }
 
 // add interval data
-var itree = new IntervalTree(((maxX+minX)/2)+1);
-var itreeH= new IntervalTree(((maxY+minY)/2)+1);
-// itree.add([0, rectX]);
-var previousX = null;
+var tree = rbush(pointArray.length);
+var maxResult = null;
+
 for (var i = 0, len = pointArray.length; i < len; i++) {
     var x = pointArray[i].x;
-    var y = pointArray[i].y
-    // if ((x - rectX) >= 0) {
-        var up = y;
-        var down = y+rectY;
-    // } else {
-    //     var left = 0;
-    //     var right = x+1;
-    // }
-    itree.add([up,down,pointArray[i]], i);
-    if (previousX !== null) {
-        var search = itree.search(pointArray[i].x);
-        search.forEach(function(result) {
-            itreeH.add(result.data);
-        });
+    var y = pointArray[i].y;
+    var bx, by;
+    if (x+rectX > areaX) {
+        bx = areaX -1;
     } else {
-        previousX = x;
+        bx = x+rectX -1;
+    }
+    if (y+rectY > areaY) {
+        by = areaY -1;
+    } else {
+        by = y+rectY -1;
     }
 
+    var item = [x, y, bx, by];
+    tree.id = i;
+    tree.insert(item);
+
+    var result = tree.search([x,y,x,y]);
+    if (maxResult === null || result.length > maxResult.length) {
+        maxResult = result;
+    }
 }
-console.log(itreeH);
-
-
+// console.log(tree.all());
+// console.log(maxResult);
+console.log(maxResult[0][0] + " " + maxResult[0][1] + ", " + maxResult.length);
 
 
 function Point(x,y,id) {
